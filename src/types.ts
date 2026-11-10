@@ -54,6 +54,7 @@ export interface CaseAnswer {
 
 export interface Manifest {
   version: number;
+  trial: string;
   cases: string[];
 }
 

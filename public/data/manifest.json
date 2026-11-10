@@ -1,1 +1,1 @@
-{ "version": 1, "cases": ["trial-brca-01"] }
+{ "version": 1, "trial": "trial-brca-01", "cases": ["trial-brca-01"] }

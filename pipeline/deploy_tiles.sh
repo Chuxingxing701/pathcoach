@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Deploy one tiles bucket (pipeline/work/tiles-N) as a static-assets-only Worker
 # named pathcoach-tiles-N. Requires CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
+# Tiles are served as immutable: put each slide under tiles-N/v<k>/ and bump k when re-tiling.
 set -euo pipefail
 n="${1:?usage: deploy_tiles.sh N}"
 here="$(cd "$(dirname "$0")" && pwd)"

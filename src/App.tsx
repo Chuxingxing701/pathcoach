@@ -10,12 +10,8 @@ function TrialViewer({ lang }: { lang: Lang }) {
 
   useEffect(() => {
     loadManifest()
-      .then(async (m) => {
-        const cases = await Promise.all(m.cases.map(loadCase));
-        const trial = cases.find((c) => c.split === 'trial');
-        if (!trial) throw new Error('no trial case');
-        setSlide(trial);
-      })
+      .then((m) => loadCase(m.trial))
+      .then(setSlide)
       .catch((e: Error) => setError(e.message));
   }, []);
 

@@ -16,7 +16,7 @@
   "specimen": "FFPE",
   "templateId": "lung-v1",
   "tiles": {
-    "dzi": "https://pathcoach-tiles-1.chuxingxing.workers.dev/trial-brca-01.dzi",
+    "dzi": "https://pathcoach-tiles-1.chuxingxing.workers.dev/v1/trial-brca-01.dzi",
     "mpp": 0.5,
     "width": 11119,
     "height": 15890,
