@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import OpenSeadragon from 'openseadragon';
 import type { CaseMeta } from './types';
+import { strings, useT } from './i18n';
 
 const MAGS = [2, 4, 10, 20, 40] as const;
 
@@ -17,6 +18,7 @@ function magToZoom(viewer: OpenSeadragon.Viewer, mpp: number, mag: number): numb
 export function SlideViewer({ slide }: { slide: CaseMeta }) {
   const el = useRef<HTMLDivElement>(null);
   const viewerRef = useRef<OpenSeadragon.Viewer | null>(null);
+  const t = useT();
   const [view, setView] = useState({ mag: 0, fieldUm: 0 });
   const { mpp, dzi } = slide.tiles;
 
@@ -71,13 +73,19 @@ export function SlideViewer({ slide }: { slide: CaseMeta }) {
     <div className="viewer">
       <div ref={el} className="viewer-canvas" data-testid="slide-viewer" />
       <div className="viewer-toolbar">
-        <span className="mag">{mag ? `${mag.toFixed(mag < 10 ? 1 : 0)}×` : '–'}</span>
+        <span className="mag" title={t(strings.equivMag)}>
+          {mag ? `≈${mag.toFixed(mag < 10 ? 1 : 0)}×` : '–'}
+        </span>
         {MAGS.map((m, i) => (
           <button key={m} onClick={() => goTo(m)} title={`key ${i + 1}`}>
             {m}×
           </button>
         ))}
-        {fieldUm > 0 && <span className="scale">field ≈ {Math.round(fieldUm)} µm</span>}
+        {fieldUm > 0 && (
+          <span className="scale">
+            {t(strings.field)} ≈ {Math.round(fieldUm)} µm
+          </span>
+        )}
       </div>
     </div>
   );
