@@ -33,13 +33,15 @@ export interface CaseMeta {
     scanMag: number;
   };
   regions: string | null;
-  source: {
-    project: string;
-    gdcFileId: string;
-    fileName: string;
-    submitterId: string;
-    sampleType: string;
-  };
+}
+
+/** Provenance reveals the label (project, sample type, barcode), so it lives with the answer. */
+export interface SlideSource {
+  project: string;
+  gdcFileId: string;
+  fileName: string;
+  submitterId: string;
+  sampleType: string;
 }
 
 /** Loaded only after the user submits a conclusion. */
@@ -47,6 +49,7 @@ export interface CaseAnswer {
   id: string;
   truth: Diagnosis;
   primaryDiagnosis: string;
+  source: SlideSource;
 }
 
 export interface Manifest {

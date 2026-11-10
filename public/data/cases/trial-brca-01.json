@@ -2,8 +2,16 @@
   "id": "trial-brca-01",
   "split": "trial",
   "site": "breast",
-  "siteLabel": { "en": "Breast", "zh": "乳腺" },
-  "clinical": { "age": 75, "sex": null, "smoking": null, "packYears": null },
+  "siteLabel": {
+    "en": "Breast",
+    "zh": "乳腺"
+  },
+  "clinical": {
+    "age": 75,
+    "sex": null,
+    "smoking": null,
+    "packYears": null
+  },
   "stain": "HE",
   "specimen": "FFPE",
   "templateId": "lung-v1",
@@ -14,12 +22,5 @@
     "height": 15890,
     "scanMag": 40
   },
-  "regions": null,
-  "source": {
-    "project": "TCGA-BRCA",
-    "gdcFileId": "f053e41e-7088-441b-9df6-afac7f4454fe",
-    "fileName": "TCGA-AC-A8OR-01Z-00-DX1.C9A35592-1E73-40D4-834A-46E3471D84A3.svs",
-    "submitterId": "TCGA-AC-A8OR",
-    "sampleType": "Primary Tumor"
-  }
+  "regions": null
 }
