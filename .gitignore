@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.wrangler/
+.dev.vars
+*.log
+.DS_Store
+# raw slides and generated tiles never go into git
+pipeline/work/
+pipeline/.venv/
+__pycache__/
