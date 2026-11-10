@@ -4,9 +4,21 @@
   "title": "Manifest",
   "type": "object",
   "additionalProperties": false,
-  "required": ["version", "cases"],
+  "required": ["version", "cases", "trial"],
   "properties": {
-    "version": { "const": 1 },
-    "cases": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+    "version": {
+      "const": 1
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "trial": {
+      "type": "string",
+      "description": "ID of the non-study viewer trial case"
+    }
   }
 }

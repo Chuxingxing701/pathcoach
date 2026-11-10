@@ -24,8 +24,13 @@ function check(schemaId: string, path: string): unknown {
 }
 
 const manifest = check('manifest.schema.json', join(dataDir, 'manifest.json')) as {
+  trial: string;
   cases: string[];
 };
+if (!manifest.cases.includes(manifest.trial)) {
+  errors++;
+  console.error(`✗ manifest: trial case ${manifest.trial} is not in cases`);
+}
 // Anything fetched before submit must not hint at the label: no TCGA project codes,
 // sample types or barcodes in case files, slide IDs or tile URLs.
 const LEAK =
@@ -39,17 +44,23 @@ for (const id of manifest.cases) {
   const casePath = join(dataDir, 'cases', `${id}.json`);
   const c = check('case.schema.json', casePath) as {
     id: string;
+    split: string;
     templateId: string;
     tiles: { dzi: string };
   };
+  if ((c.split === 'trial') !== (id === manifest.trial)) {
+    errors++;
+    console.error(`✗ case ${id}: split "trial" must match manifest.trial`);
+  }
   const leak = readFileSync(casePath, 'utf8').match(LEAK);
   if (leak) {
     errors++;
     console.error(`✗ case ${id}: label hint "${leak[0]}" in a pre-submit file (ADR-004)`);
   }
-  if (!c.tiles.dzi.endsWith(`/${id}.dzi`)) {
+  // Tiles are cached as immutable, so re-tiled slides must move to a new /v<n>/ directory.
+  if (!new RegExp(`/v\\d+/${id}\\.dzi$`).test(c.tiles.dzi)) {
     errors++;
-    console.error(`✗ case ${id}: DZI must be named ${id}.dzi so tile URLs stay opaque`);
+    console.error(`✗ case ${id}: DZI must be <tiles>/v<n>/${id}.dzi (opaque name, versioned path)`);
   }
   if (c.id !== id) {
     errors++;
@@ -63,7 +74,13 @@ for (const id of manifest.cases) {
   if (!existsSync(answer)) {
     errors++;
     console.error(`✗ case ${id}: missing answers/${id}.json`);
-  } else check('answer.schema.json', answer);
+  } else {
+    const a = check('answer.schema.json', answer) as { id: string };
+    if (a.id !== id) {
+      errors++;
+      console.error(`✗ answers/${id}.json: id mismatch (${a.id})`);
+    }
+  }
 }
 const caseFiles = readdirSync(join(dataDir, 'cases')).map((f) => f.replace(/\.json$/, ''));
 for (const id of caseFiles) {
