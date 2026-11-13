@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "template.schema.json",
+  "title": "Template",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "organ", "version", "steps"],
+  "definitions": {
+    "level": { "enum": ["novice", "proficient", "expert"] },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "url"],
+      "properties": { "title": { "type": "string" }, "url": { "type": "string", "format": "uri" } }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "sources"],
+      "properties": {
+        "id": { "type": "string" },
+        "label": { "$ref": "i18n.schema.json" },
+        "hint": { "$ref": "i18n.schema.json" },
+        "sources": { "type": "array", "items": { "$ref": "#/definitions/source" } },
+        "atlas": { "type": "array", "items": { "type": "string" } }
+      },
+      "if": { "required": ["hint"] },
+      "then": { "properties": { "sources": { "type": "array", "minItems": 1 } } }
+    }
+  },
+  "properties": {
+    "id": { "type": "string" },
+    "organ": { "type": "string" },
+    "version": { "type": "integer", "minimum": 1 },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "targetMag", "title", "levels", "items"],
+        "properties": {
+          "id": { "type": "string" },
+          "kind": {
+            "enum": ["site", "tissue", "stain", "pre-assessment", "features", "conclusion"]
+          },
+          "targetMag": { "type": ["number", "null"] },
+          "title": { "$ref": "i18n.schema.json" },
+          "levels": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/level" },
+            "uniqueItems": true
+          },
+          "items": { "type": "array", "items": { "$ref": "#/definitions/item" } }
+        }
+      }
+    }
+  }
+}
