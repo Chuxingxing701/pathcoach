@@ -57,17 +57,17 @@ def main():
             },
         }
         (DATA / "cases" / f"{cid}.json").write_text(
-            json.dumps(case, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+            json.dumps(case, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n"
         )
         (DATA / "answers" / f"{cid}.json").write_text(
-            json.dumps(answer, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+            json.dumps(answer, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n"
         )
         if cid not in manifest["cases"]:
             manifest["cases"].append(cid)
 
     manifest["cases"].sort()
     (DATA / "manifest.json").write_text(
-        json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n"
     )
     print(f"wrote {len(sel)} cases + answers; manifest has {len(manifest['cases'])} cases")
 
