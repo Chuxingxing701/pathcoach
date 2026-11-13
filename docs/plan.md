@@ -43,14 +43,31 @@
 
 ### M1 · 数据管线（第 3–6 天）
 
+> 执行细化（Chu 2026-11-13 确认）：制片按 ADR-006（肺部全冰冻、其他部位 FFPE），瓦片按 ADR-003（1024 px / 静态 Worker，不用 R2）。
+
 **Devin**
 
-1. 用 GDC API 挑 28 张：肺正常 4 + 腺 4 + 鳞 4（练习）、其他部位腺 2 + 鳞 2、留出 6 + 6；条件：open access、Diagnostic Slide、SVS < 150 MB、有 clinical（年龄 / 性别 / 吸烟史）、有 mpp 元数据
-2. 下载 → pyvips 切 DZI（512 px 瓦片）→ 上传 R2 → 生成 `cases/*.json` + `manifest.json`，`split` 字段标 practice / pretest / posttest
-3. 切片质量人工抽查（有无大面积空白、折叠、笔迹），不合格的换
-4. 写 `data/README.md`：来源、引用、致谢语、脚本复现步骤
-5. 并行启动 WSInfer：先对 2 张 LUSC 实测 `lung-tumor-resnet34.tcga-luad`，出一页效果对比（给 R3 决策用）
-   **Chu**：**不要看任何切片**；只看一份「不含诊断」的切片清单（id、部位、split）
+1. **GDC 选片 28 张**（ID 一律无含义编号 `lung-01…24` / `other-01…04`）：
+
+   | 分组 | 数量 | 类别 | 制片 |
+   | --- | --- | --- | --- |
+   | 练习 | 12 | 肺正常 4 + 腺 4 + 鳞 4 | 全冰冻 |
+   | 练前测 | 6 | 正常 2 + 腺 2 + 鳞 2 | 全冰冻 |
+   | 练后测 | 6 | 正常 2 + 腺 2 + 鳞 2 | 全冰冻 |
+   | 其他部位练习 | 4 | 腺 2 + 鳞 2 | FFPE |
+
+   - 练前 / 练后两组按大小、倍数、类别配对，难度可比
+   - 其他部位候选：腺 → 结肠 COAD / 胃 STAD；鳞 → 宫颈 CESC / 头颈 HNSC / 食管 ESCA（乳腺按 ADR-005 排除）
+   - 筛选：open access、SVS ≤ 150 MB、有 mpp、clinical 含年龄 / 性别 / 吸烟史
+   - 给 Chu 一份不含诊断的清单（id、部位、split、制片方式）
+2. 下载 → pyvips 切 DZI（1024 px JPEG Q80、无重叠、跳过空白、封顶 20×）→ 部署瓦片 Worker（预计 2 个，`v1/` 版本目录）
+3. 生成 `cases/*.json`（无标签无出处）+ `answers/*.json`（truth + 诊断 + GDC 出处）+ `manifest.json`；clinical 只抄 GDC；`validate:data` 含泄漏检查必须全过
+4. 切片质量抽查（Devin）：大面积空白 / 折叠 / 笔迹 / 染色异常 → 换片，更换记录进审核包
+5. 写 `data/README.md`：来源、引用、致谢语、脚本复现步骤
+6. 并行启动 WSInfer：先对 2 张 LUSC 实测 `lung-tumor-resnet34.tcga-luad`，出一页效果对比 + 核实模型 license（给 R3 决策用，不阻塞 M1）
+7. 部署口径：瓦片和数据上 CDN，但主站 UI 不开放练习库；M2 只上线 `/test` 入口
+   **Chu**：**不要看任何切片**；只看不含诊断的切片清单
+   **上报规则**（不等 R1）：候选不足需放宽筛选 / 换部位、WSInfer license 或效果问题、其他偏离 ADR / 规格的决定
    **产出**：28 张切片在线可浏览、manifest、数据 README、LUSC 实测报告
 
 > ### 审核点 R1 · 数据与许可
