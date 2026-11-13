@@ -20,6 +20,9 @@ def main():
     manifest = json.loads((DATA / "manifest.json").read_text(encoding="utf-8"))
 
     for cid, c in sel.items():
+        if cid not in info:
+            print(f"skip {cid}: no tile info yet")
+            continue
         t = info[cid]
         case = {
             "id": cid,
