@@ -1,0 +1,12 @@
+{
+  "id": "other-01",
+  "truth": "adeno",
+  "primaryDiagnosis": "Adenocarcinoma, NOS",
+  "source": {
+    "project": "TCGA-ESCA",
+    "gdcFileId": "f423fc22-7289-4aad-b611-bb7070c6d17c",
+    "fileName": "TCGA-V5-A7RB-01Z-00-DX1.44386D51-0042-43AB-A5F6-C2674B6A01D0.svs",
+    "submitterId": "TCGA-V5-A7RB",
+    "sampleType": "Primary Tumor"
+  }
+}

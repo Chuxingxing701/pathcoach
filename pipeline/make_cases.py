@@ -45,7 +45,9 @@ def main():
         answer = {
             "id": cid,
             "truth": c["truth"],
-            "primaryDiagnosis": c["primaryDiagnosis"],
+            # For Solid Tissue Normal slides the GDC record carries the patient's
+            # tumour diagnosis; the slide-level diagnosis is "normal lung".
+            "primaryDiagnosis": "Normal lung tissue" if c["truth"] == "normal" else c["primaryDiagnosis"],
             "source": {
                 "project": c["project"],
                 "gdcFileId": c["fileId"],

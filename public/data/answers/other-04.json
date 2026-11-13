@@ -1,0 +1,12 @@
+{
+  "id": "other-04",
+  "truth": "squamous",
+  "primaryDiagnosis": "Squamous cell carcinoma, NOS",
+  "source": {
+    "project": "TCGA-CESC",
+    "gdcFileId": "b0286604-6834-46d9-a7c8-55fe5f8ec1cc",
+    "fileName": "TCGA-VS-A9V3-01Z-00-DX1.6625C7BA-2F8A-41E9-871B-EF8C96999A74.svs",
+    "submitterId": "TCGA-VS-A9V3",
+    "sampleType": "Primary Tumor"
+  }
+}

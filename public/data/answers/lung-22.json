@@ -1,0 +1,12 @@
+{
+  "id": "lung-22",
+  "truth": "normal",
+  "primaryDiagnosis": "Normal lung tissue",
+  "source": {
+    "project": "TCGA-LUSC",
+    "gdcFileId": "7c9600c9-f478-4bf2-961b-2f0a4ca8acd8",
+    "fileName": "TCGA-77-8153-11A-01-TS1.1e170a9c-5622-4816-bb91-88728b74e105.svs",
+    "submitterId": "TCGA-77-8153",
+    "sampleType": "Solid Tissue Normal"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "lung-17",
+  "truth": "squamous",
+  "primaryDiagnosis": "Squamous cell carcinoma, NOS",
+  "source": {
+    "project": "TCGA-LUSC",
+    "gdcFileId": "beb6179c-1f08-4c8e-9bc5-ef30d566a7f8",
+    "fileName": "TCGA-66-2785-01A-01-TS1.6ff7997b-3593-4008-a8b0-e8e2c521c9a5.svs",
+    "submitterId": "TCGA-66-2785",
+    "sampleType": "Primary Tumor"
+  }
+}

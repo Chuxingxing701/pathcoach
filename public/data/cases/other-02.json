@@ -1,0 +1,26 @@
+{
+  "id": "other-02",
+  "split": "practice",
+  "site": "pancreas",
+  "siteLabel": {
+    "en": "Pancreas",
+    "zh": "胰腺"
+  },
+  "clinical": {
+    "age": 81,
+    "sex": "male",
+    "smoking": "15 pack-years",
+    "packYears": 15
+  },
+  "stain": "HE",
+  "specimen": "FFPE",
+  "templateId": "lung-v1",
+  "tiles": {
+    "dzi": "https://pathcoach-tiles-1.chuxingxing.workers.dev/v1/other-02.dzi",
+    "mpp": 0.5,
+    "width": 14987,
+    "height": 15919,
+    "scanMag": 40.0
+  },
+  "regions": null
+}
