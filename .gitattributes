@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.svs binary
+*.dzi binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.h5 binary
