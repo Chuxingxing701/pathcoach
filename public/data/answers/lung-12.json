@@ -1,0 +1,12 @@
+{
+  "id": "lung-12",
+  "truth": "adeno",
+  "primaryDiagnosis": "Adenocarcinoma, NOS",
+  "source": {
+    "project": "TCGA-LUAD",
+    "gdcFileId": "d198bd64-1a1d-46de-8e11-f2afabd36baf",
+    "fileName": "TCGA-44-6778-01A-01-TS1.c2f70fc8-093c-4b9b-8907-4860bbea651f.svs",
+    "submitterId": "TCGA-44-6778",
+    "sampleType": "Primary Tumor"
+  }
+}

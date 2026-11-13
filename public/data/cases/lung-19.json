@@ -1,0 +1,26 @@
+{
+  "id": "lung-19",
+  "split": "posttest",
+  "site": "lung",
+  "siteLabel": {
+    "en": "Lung",
+    "zh": "肺"
+  },
+  "clinical": {
+    "age": 57,
+    "sex": "male",
+    "smoking": "current smoker",
+    "packYears": null
+  },
+  "stain": "HE",
+  "specimen": "frozen",
+  "templateId": "lung-v1",
+  "tiles": {
+    "dzi": "https://pathcoach-tiles-1.chuxingxing.workers.dev/v1/lung-19.dzi",
+    "mpp": 0.5015,
+    "width": 32001,
+    "height": 33163,
+    "scanMag": 20.0
+  },
+  "regions": null
+}

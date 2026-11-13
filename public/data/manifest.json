@@ -1,1 +1,35 @@
-{ "version": 1, "trial": "trial-brca-01", "cases": ["trial-brca-01"] }
+{
+  "version": 1,
+  "trial": "trial-brca-01",
+  "cases": [
+    "lung-01",
+    "lung-02",
+    "lung-03",
+    "lung-04",
+    "lung-05",
+    "lung-06",
+    "lung-07",
+    "lung-08",
+    "lung-09",
+    "lung-10",
+    "lung-11",
+    "lung-12",
+    "lung-13",
+    "lung-14",
+    "lung-15",
+    "lung-16",
+    "lung-17",
+    "lung-18",
+    "lung-19",
+    "lung-20",
+    "lung-21",
+    "lung-22",
+    "lung-23",
+    "lung-24",
+    "other-01",
+    "other-02",
+    "other-03",
+    "other-04",
+    "trial-brca-01"
+  ]
+}
