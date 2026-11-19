@@ -4,6 +4,8 @@ import type { CaseMeta } from './types';
 import { strings, useT } from './i18n';
 
 const MAGS = [2, 4, 10, 20, 40] as const;
+/** Nice round scale-bar lengths (µm), largest first. */
+const SCALE_STEPS_UM = [20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
 
 /** Equivalent objective magnification, assuming 10x ≈ 1.0 µm/px on screen. */
 function zoomToMag(viewer: OpenSeadragon.Viewer, mpp: number): number {
@@ -19,7 +21,15 @@ export function SlideViewer({ slide }: { slide: CaseMeta }) {
   const el = useRef<HTMLDivElement>(null);
   const viewerRef = useRef<OpenSeadragon.Viewer | null>(null);
   const t = useT();
-  const [view, setView] = useState({ mag: 0, fieldUm: 0 });
+  const [view, setView] = useState<{
+    mag: number;
+    fieldUm: number;
+    scale: { um: number; px: number } | null;
+  }>({
+    mag: 0,
+    fieldUm: 0,
+    scale: null,
+  });
   const { mpp, dzi } = slide.tiles;
 
   useEffect(() => {
@@ -39,7 +49,13 @@ export function SlideViewer({ slide }: { slide: CaseMeta }) {
     });
     const update = () => {
       const mag = zoomToMag(viewer, mpp);
-      setView({ mag, fieldUm: (viewer.container.clientWidth * 10) / mag });
+      const pxPerUm = mag / 10;
+      const step = SCALE_STEPS_UM.find((um) => um * pxPerUm <= 160 && um * pxPerUm >= 12) ?? null;
+      setView({
+        mag,
+        fieldUm: (viewer.container.clientWidth * 10) / mag,
+        scale: step === null ? null : { um: step, px: step * pxPerUm },
+      });
     };
     viewer.addHandler('animation', update);
     viewer.addHandler('animation-finish', update);
@@ -67,7 +83,7 @@ export function SlideViewer({ slide }: { slide: CaseMeta }) {
     if (viewer) viewer.viewport.zoomTo(magToZoom(viewer, mpp, m));
   };
 
-  const { mag, fieldUm } = view;
+  const { mag, fieldUm, scale } = view;
 
   return (
     <div className="viewer">
@@ -87,6 +103,12 @@ export function SlideViewer({ slide }: { slide: CaseMeta }) {
           </span>
         )}
       </div>
+      {scale && (
+        <div className="scalebar">
+          <i style={{ width: scale.px }} />
+          {scale.um >= 1000 ? `${scale.um / 1000} mm` : `${scale.um} µm`}
+        </div>
+      )}
     </div>
   );
 }

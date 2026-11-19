@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
-import { LangContext, initialLang, saveLang, strings } from './i18n';
+import { useEffect, useState, type ChangeEvent } from 'react';
+import { LangContext, initialLang, saveLang, strings, useT } from './i18n';
 import { loadCase, loadManifest } from './data';
+import { downloadJson, exportArchive, importArchive } from './storage';
+import { isFinished, loadSession } from './testSession';
 import { SlideViewer } from './SlideViewer';
+import { TestPage } from './TestPage';
 import type { CaseMeta, Lang } from './types';
 
 function TrialViewer({ lang }: { lang: Lang }) {
@@ -27,6 +30,37 @@ function TrialViewer({ lang }: { lang: Lang }) {
   );
 }
 
+function ArchivePanel() {
+  const t = useT();
+  const [msg, setMsg] = useState<string | null>(null);
+
+  const onExport = () => downloadJson('pathcoach-archive.json', exportArchive());
+  const onImport = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if (!file) return;
+    file
+      .text()
+      .then((text) => {
+        importArchive(JSON.parse(text));
+        setMsg(t(strings.archiveImported));
+      })
+      .catch(() => setMsg(t(strings.archiveImportFailed)));
+  };
+
+  return (
+    <div className="archive">
+      <span className="archive-label">{t(strings.localData)}</span>
+      <button onClick={onExport}>{t(strings.exportArchive)}</button>
+      <label className="import-btn">
+        {t(strings.importArchive)}
+        <input type="file" accept="application/json" onChange={onImport} hidden />
+      </label>
+      {msg && <span className="archive-msg">{msg}</span>}
+    </div>
+  );
+}
+
 export function App() {
   const [lang, setLang] = useState<Lang>(initialLang);
   const [path, setPath] = useState(window.location.pathname);
@@ -46,6 +80,13 @@ export function App() {
     saveLang(next);
     setLang(next);
   };
+
+  const pretest = loadSession('pretest');
+  const testLabel = !pretest
+    ? strings.testEntry[lang]
+    : isFinished(pretest)
+      ? strings.testDoneEntry[lang]
+      : strings.testResume[lang];
 
   return (
     <LangContext.Provider value={lang}>
@@ -68,10 +109,18 @@ export function App() {
       <main>
         {path === '/trial' ? (
           <TrialViewer lang={lang} />
+        ) : path === '/test' ? (
+          <TestPage mode="pretest" goHome={() => navigate('/')} />
         ) : (
           <section className="home">
             <p>{strings.underConstruction[lang]}</p>
-            <button onClick={() => navigate('/trial')}>{strings.trialViewer[lang]}</button>
+            <div className="home-actions">
+              <button className="primary" onClick={() => navigate('/test')}>
+                {testLabel}
+              </button>
+              <button onClick={() => navigate('/trial')}>{strings.trialViewer[lang]}</button>
+            </div>
+            <ArchivePanel />
           </section>
         )}
       </main>
