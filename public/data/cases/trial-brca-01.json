@@ -1,0 +1,26 @@
+{
+  "id": "trial-brca-01",
+  "split": "trial",
+  "site": "breast",
+  "siteLabel": {
+    "en": "Breast",
+    "zh": "乳腺"
+  },
+  "clinical": {
+    "age": 75,
+    "sex": null,
+    "smoking": null,
+    "packYears": null
+  },
+  "stain": "HE",
+  "specimen": "FFPE",
+  "templateId": "lung-v1",
+  "tiles": {
+    "dzi": "https://pathcoach-tiles-1.chuxingxing.workers.dev/v1/trial-brca-01.dzi",
+    "mpp": 0.5,
+    "width": 11119,
+    "height": 15890,
+    "scanMag": 40
+  },
+  "regions": null
+}
