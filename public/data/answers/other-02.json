@@ -1,0 +1,12 @@
+{
+  "id": "other-02",
+  "truth": "adeno",
+  "primaryDiagnosis": "Infiltrating duct carcinoma, NOS",
+  "source": {
+    "project": "TCGA-PAAD",
+    "gdcFileId": "5b60d9c7-76dc-465d-b03b-5258d968d227",
+    "fileName": "TCGA-HZ-A8P1-01Z-00-DX1.22B7AE4A-DA67-4B50-899A-1BC3F736061B.svs",
+    "submitterId": "TCGA-HZ-A8P1",
+    "sampleType": "Primary Tumor"
+  }
+}

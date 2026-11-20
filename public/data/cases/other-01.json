@@ -1,0 +1,26 @@
+{
+  "id": "other-01",
+  "split": "practice",
+  "site": "esophagus",
+  "siteLabel": {
+    "en": "Esophagus",
+    "zh": "食管"
+  },
+  "clinical": {
+    "age": 59,
+    "sex": "male",
+    "smoking": "40 pack-years",
+    "packYears": 40
+  },
+  "stain": "HE",
+  "specimen": "FFPE",
+  "templateId": "lung-v1",
+  "tiles": {
+    "dzi": "https://pathcoach-tiles-1.chuxingxing.workers.dev/v1/other-01.dzi",
+    "mpp": 0.5,
+    "width": 20730,
+    "height": 21383,
+    "scanMag": 40.0
+  },
+  "regions": null
+}

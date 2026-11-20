@@ -1,0 +1,55 @@
+{
+  "id": "lung-v1",
+  "organ": "lung",
+  "version": 1,
+  "steps": [
+    {
+      "id": "site",
+      "kind": "site",
+      "targetMag": null,
+      "title": { "en": "0 · Site first", "zh": "0 · 先看部位" },
+      "levels": ["novice", "proficient", "expert"],
+      "items": []
+    },
+    {
+      "id": "tissue",
+      "kind": "tissue",
+      "targetMag": 2,
+      "title": { "en": "1 · Tissue type", "zh": "1 · 组织类型" },
+      "levels": ["novice", "proficient"],
+      "items": []
+    },
+    {
+      "id": "stain",
+      "kind": "stain",
+      "targetMag": 2,
+      "title": { "en": "2 · Stain and quality", "zh": "2 · 染色与制片质量" },
+      "levels": ["novice", "proficient"],
+      "items": []
+    },
+    {
+      "id": "pre",
+      "kind": "pre-assessment",
+      "targetMag": null,
+      "title": { "en": "3 · Pre-assessment", "zh": "3 · 预判" },
+      "levels": ["novice", "proficient"],
+      "items": []
+    },
+    {
+      "id": "features",
+      "kind": "features",
+      "targetMag": 10,
+      "title": { "en": "4 · Features (low → high power)", "zh": "4 · 特征（低倍 → 高倍）" },
+      "levels": ["novice", "proficient"],
+      "items": []
+    },
+    {
+      "id": "conclusion",
+      "kind": "conclusion",
+      "targetMag": null,
+      "title": { "en": "5 · Conclusion", "zh": "5 · 结论" },
+      "levels": ["novice", "proficient", "expert"],
+      "items": []
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "lung-02",
+  "split": "pretest",
+  "site": "lung",
+  "siteLabel": {
+    "en": "Lung",
+    "zh": "肺"
+  },
+  "clinical": {
+    "age": 48,
+    "sex": "female",
+    "smoking": "30 pack-years",
+    "packYears": 30
+  },
+  "stain": "HE",
+  "specimen": "frozen",
+  "templateId": "lung-v1",
+  "tiles": {
+    "dzi": "https://pathcoach-tiles-1.chuxingxing.workers.dev/v1/lung-02.dzi",
+    "mpp": 0.5015,
+    "width": 24001,
+    "height": 24568,
+    "scanMag": 20.0
+  },
+  "regions": null
+}
