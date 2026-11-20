@@ -211,7 +211,10 @@ export function TestPage({ mode, goHome }: { mode: TestMode; goHome: () => void 
           </>
         )}
         <p className="result-actions">
-          <button onClick={() => downloadJson(`pathcoach-${mode}-results.json`, exportPayload())}>
+          <button
+            disabled={answers === null}
+            onClick={() => downloadJson(`pathcoach-${mode}-results.json`, exportPayload())}
+          >
             {t(strings.exportResults)}
           </button>
           <button onClick={goHome}>{t(strings.backHome)}</button>
