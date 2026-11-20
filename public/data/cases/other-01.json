@@ -14,13 +14,13 @@
   },
   "stain": "HE",
   "specimen": "FFPE",
-  "templateId": "lung-v1",
+  "templateId": "other-v1",
   "tiles": {
     "dzi": "https://pathcoach-tiles-1.chuxingxing.workers.dev/v1/other-01.dzi",
     "mpp": 0.5,
     "width": 20730,
     "height": 21383,
-    "scanMag": 40.0
+    "scanMag": 40
   },
   "regions": null
 }

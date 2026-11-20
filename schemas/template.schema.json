@@ -22,6 +22,7 @@
         "label": { "$ref": "i18n.schema.json" },
         "hint": { "$ref": "i18n.schema.json" },
         "sources": { "type": "array", "items": { "$ref": "#/definitions/source" } },
+        "options": { "type": "array", "items": { "$ref": "i18n.schema.json" } },
         "atlas": { "type": "array", "items": { "type": "string" } }
       },
       "if": { "required": ["hint"] },

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import OpenSeadragon from 'openseadragon';
 import type { CaseMeta } from './types';
 import { strings, useT } from './i18n';
@@ -17,9 +17,46 @@ function magToZoom(viewer: OpenSeadragon.Viewer, mpp: number, mag: number): numb
   return viewer.viewport.imageToViewportZoom((mag * mpp) / 10);
 }
 
-export function SlideViewer({ slide }: { slide: CaseMeta }) {
+/** Smoothly zoom to an equivalent objective magnification (2/4/10/20/40). */
+export function setMag(viewer: OpenSeadragon.Viewer, mpp: number, mag: number): void {
+  viewer.viewport.zoomTo(magToZoom(viewer, mpp, mag));
+}
+
+/** Pan/zoom so the bounding box of the given image-pixel points fills the view. */
+export function fitImagePoints(viewer: OpenSeadragon.Viewer, points: [number, number][]): void {
+  if (!points.length) return;
+  const xs = points.map((p) => p[0]);
+  const ys = points.map((p) => p[1]);
+  const pad = Math.max(
+    200,
+    0.25 * Math.max(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys)),
+  );
+  const rect = viewer.viewport.imageToViewportRectangle(
+    Math.min(...xs) - pad,
+    Math.min(...ys) - pad,
+    Math.max(...xs) - Math.min(...xs) + 2 * pad,
+    Math.max(...ys) - Math.min(...ys) + 2 * pad,
+  );
+  viewer.viewport.fitBounds(rect);
+}
+
+export function SlideViewer({
+  slide,
+  onViewerReady,
+  children,
+}: {
+  slide: CaseMeta;
+  /** Called with the viewer once the slide opens, and null on teardown. */
+  onViewerReady?: (viewer: OpenSeadragon.Viewer | null) => void;
+  /** Extra absolutely-positioned layers inside the viewer frame (e.g. annotations). */
+  children?: ReactNode;
+}) {
   const el = useRef<HTMLDivElement>(null);
   const viewerRef = useRef<OpenSeadragon.Viewer | null>(null);
+  const readyRef = useRef(onViewerReady);
+  useEffect(() => {
+    readyRef.current = onViewerReady;
+  });
   const t = useT();
   const [view, setView] = useState<{
     mag: number;
@@ -61,7 +98,9 @@ export function SlideViewer({ slide }: { slide: CaseMeta }) {
     viewer.addHandler('animation-finish', update);
     viewer.addHandler('open', update);
     viewerRef.current = viewer;
+    readyRef.current?.(viewer);
     return () => {
+      readyRef.current?.(null);
       viewer.destroy();
       viewerRef.current = null;
     };
@@ -109,6 +148,7 @@ export function SlideViewer({ slide }: { slide: CaseMeta }) {
           {scale.um >= 1000 ? `${scale.um / 1000} mm` : `${scale.um} µm`}
         </div>
       )}
+      {children}
     </div>
   );
 }

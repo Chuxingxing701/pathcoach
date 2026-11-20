@@ -63,6 +63,8 @@ export interface TemplateItem {
   label: I18nText;
   hint?: I18nText;
   sources: Source[];
+  /** Novice tier: clickable recall options for step-0 prompts (appended to the answer). */
+  options?: I18nText[];
   atlas?: string[];
 }
 
@@ -99,12 +101,15 @@ export interface Annotation {
 export interface ReadingSession {
   caseId: string;
   level: Level;
+  /** Once the step-0 recall is complete the slide stays unlocked (survives level switches). */
+  unlocked?: boolean;
   step0Answers: Record<string, string>;
   answers: Record<string, { value: ItemValue; note: string }>;
   annotations: Annotation[];
   conclusion: Diagnosis | null;
   revealedAt: string | null;
-  selfReview: Record<string, 'found' | 'missed' | 'aiWrong'>;
+  /** Filled at reveal time — whether the conclusion matched the official label. */
+  correct?: boolean;
   updatedAt: string;
 }
 
