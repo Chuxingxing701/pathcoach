@@ -8,5 +8,11 @@
     "fileName": "TCGA-R6-A8WC-01Z-00-DX1.D7838B62-73C9-4FC8-AC0A-28DAB10470BA.svs",
     "submitterId": "TCGA-R6-A8WC",
     "sampleType": "Primary Tumor"
-  }
+  },
+  "references": [
+    {
+      "title": "Pathology Outlines: Esophageal adenocarcinoma",
+      "url": "https://www.pathologyoutlines.com/topic/esophagusadenocarcinoma.html"
+    }
+  ]
 }

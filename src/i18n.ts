@@ -131,6 +131,7 @@ export const strings = {
   verdictOk: { en: 'Correct.', zh: '判对了。' },
   verdictBad: { en: 'Not this time.', zh: '这次没判对。' },
   revealDx: { en: 'Official diagnosis', zh: '官方诊断' },
+  revealRefs: { en: 'Textbook reference', zh: '教科书式参考' },
   localData: { en: 'Local data', zh: '本地数据' },
   exportArchive: { en: 'Export archive', zh: '导出存档' },
   importArchive: { en: 'Import archive', zh: '导入存档' },

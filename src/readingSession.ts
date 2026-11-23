@@ -25,10 +25,32 @@ export function save(s: ReadingSession): ReadingSession {
   return next;
 }
 
-export function getOrCreate(caseId: string, level: Level): ReadingSession {
-  return (
-    load(caseId) ?? {
+/**
+ * caseIds whose slide was swapped before the dzi fingerprint existed. Any
+ * fingerprint-less session for these was recorded against the old slide and
+ * is treated as stale (other legacy sessions get stamped, they were recorded
+ * against the current slide).
+ */
+const PRE_FINGERPRINT_SWAPS = new Set(['other-01']);
+
+export function getOrCreate(caseId: string, level: Level, dzi: string): ReadingSession {
+  const existing = load(caseId);
+  // A defined-but-different fingerprint means the slide was swapped after the
+  // session was recorded: the old answers are against different pixels, drop them.
+  const stale =
+    existing &&
+    (PRE_FINGERPRINT_SWAPS.has(caseId)
+      ? existing.dzi !== dzi
+      : Boolean(existing.dzi && existing.dzi !== dzi));
+  if (stale) {
+    store.remove(key(caseId));
+    return create();
+  }
+  return existing ? { ...existing, dzi } : create();
+  function create(): ReadingSession {
+    return {
       caseId,
+      dzi,
       level,
       step0Answers: {},
       answers: {},
@@ -36,8 +58,8 @@ export function getOrCreate(caseId: string, level: Level): ReadingSession {
       conclusion: null,
       revealedAt: null,
       updatedAt: new Date().toISOString(),
-    }
-  );
+    };
+  }
 }
 
 export function setStep0(s: ReadingSession, itemId: string, text: string): ReadingSession {

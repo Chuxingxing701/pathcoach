@@ -57,7 +57,7 @@ export function CasePage({ caseId, goHome }: { caseId: string; goHome: () => voi
         if (!alive) return;
         setMeta(m);
         setTemplate(tpl);
-        setSession(rs.save(rs.getOrCreate(caseId, rs.getLevel())));
+        setSession(rs.save(rs.getOrCreate(caseId, rs.getLevel(), m.tiles.dzi)));
       })
       .catch((e: Error) => alive && setError(e.message));
     return () => {
@@ -288,6 +288,19 @@ export function CasePage({ caseId, goHome }: { caseId: string; goHome: () => voi
                 GDC
               </a>
             </p>
+            {answer.references && answer.references.length > 0 && (
+              <p className="src-line">
+                {t(strings.revealRefs)}:{' '}
+                {answer.references.map((r, i) => (
+                  <span key={r.url}>
+                    {i > 0 && ' · '}
+                    <a href={r.url} target="_blank" rel="noreferrer">
+                      {r.title}
+                    </a>
+                  </span>
+                ))}
+              </p>
+            )}
           </div>
         </>
       )}

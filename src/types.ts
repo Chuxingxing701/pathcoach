@@ -50,6 +50,8 @@ export interface CaseAnswer {
   truth: Diagnosis;
   primaryDiagnosis: string;
   source: SlideSource;
+  /** Textbook-atlas references (e.g. Pathology Outlines topic pages) shown at reveal. */
+  references?: Source[];
 }
 
 export interface Manifest {
@@ -100,6 +102,8 @@ export interface Annotation {
 
 export interface ReadingSession {
   caseId: string;
+  /** Fingerprint of the slide the session was recorded against; a swap invalidates it. */
+  dzi?: string;
   level: Level;
   /** Once the step-0 recall is complete the slide stays unlocked (survives level switches). */
   unlocked?: boolean;

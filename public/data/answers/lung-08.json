@@ -8,5 +8,11 @@
     "fileName": "TCGA-05-4417-01A-01-BS1.77504096-c1dd-4bbf-ab1a-c12fde152fc1.svs",
     "submitterId": "TCGA-05-4417",
     "sampleType": "Primary Tumor"
-  }
+  },
+  "references": [
+    {
+      "title": "Pathology Outlines: Lung adenocarcinoma",
+      "url": "https://www.pathologyoutlines.com/topic/lungtumoradenocarcinoma.html"
+    }
+  ]
 }

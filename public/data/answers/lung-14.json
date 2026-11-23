@@ -8,5 +8,11 @@
     "fileName": "TCGA-94-A4VJ-01A-01-TSA.416CD92F-ADBE-4DE1-AE92-BE0260DF37AF.svs",
     "submitterId": "TCGA-94-A4VJ",
     "sampleType": "Primary Tumor"
-  }
+  },
+  "references": [
+    {
+      "title": "Pathology Outlines: Lung squamous cell carcinoma",
+      "url": "https://www.pathologyoutlines.com/topic/lungtumorscc.html"
+    }
+  ]
 }
