@@ -1,7 +1,7 @@
 {
   "id": "lung-v1",
   "organ": "lung",
-  "version": 1,
+  "version": 2,
   "steps": [
     {
       "id": "site",
@@ -9,7 +9,57 @@
       "targetMag": null,
       "title": { "en": "0 · Site first", "zh": "0 · 先看部位" },
       "levels": ["novice", "proficient", "expert"],
-      "items": []
+      "items": [
+        {
+          "id": "s0-structure",
+          "label": {
+            "en": "From memory: what is normal lung made of?",
+            "zh": "凭记忆：正常肺组织由什么构成？"
+          },
+          "hint": {
+            "en": "Think conducting airways (bronchi → bronchioles) and gas-exchange units (alveoli); alveolar septa are thin.",
+            "zh": "想导气管道（支气管→细支气管）和换气单位（肺泡）；肺泡隔很薄。"
+          },
+          "options": [
+            { "en": "alveoli", "zh": "肺泡" },
+            { "en": "bronchi / bronchioles", "zh": "支气管/细支气管" },
+            { "en": "thin alveolar septa", "zh": "薄肺泡隔" },
+            { "en": "vessels", "zh": "血管" }
+          ],
+          "sources": [
+            {
+              "title": "PathologyOutlines · Lung histology",
+              "url": "https://www.pathologyoutlines.com/topic/lungnontumorhistology.html"
+            }
+          ]
+        },
+        {
+          "id": "s0-cancers",
+          "label": {
+            "en": "From memory: which cancers are common in the lung?",
+            "zh": "凭记忆：肺部常见的癌有哪些类型？"
+          },
+          "hint": {
+            "en": "Adenocarcinoma and squamous cell carcinoma are the common non-small cell types; small cell carcinoma also exists.",
+            "zh": "常见的是非小细胞的腺癌和鳞癌；还有小细胞癌。"
+          },
+          "options": [
+            { "en": "adenocarcinoma", "zh": "腺癌" },
+            { "en": "squamous cell carcinoma", "zh": "鳞癌" },
+            { "en": "small cell carcinoma", "zh": "小细胞癌" }
+          ],
+          "sources": [
+            {
+              "title": "PathologyOutlines · Lung adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/lungtumoradenocarcinoma.html"
+            },
+            {
+              "title": "PathologyOutlines · Lung squamous cell carcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/lungtumorscc.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "tissue",
@@ -17,7 +67,50 @@
       "targetMag": 2,
       "title": { "en": "1 · Tissue type", "zh": "1 · 组织类型" },
       "levels": ["novice", "proficient"],
-      "items": []
+      "items": [
+        {
+          "id": "t1-identify",
+          "label": {
+            "en": "Confirm this is lung tissue (open airspaces, thin septa, airways)",
+            "zh": "确认切片是肺组织（开放肺泡腔、薄肺泡隔、气道）"
+          },
+          "hint": {
+            "en": "At 2×, normal lung shows mostly open alveolar spaces with thin septa, plus bronchi/bronchioles and vessels.",
+            "zh": "2× 下正常肺大部分是开放的肺泡腔、薄肺泡隔，另有支气管/细支气管和血管。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Lung histology",
+              "url": "https://www.pathologyoutlines.com/topic/lungnontumorhistology.html"
+            }
+          ]
+        },
+        {
+          "id": "t1-scan",
+          "label": {
+            "en": "Systematic low-power scan: sweep the whole section; flag dense, basophilic areas where the open-airspace pattern is lost — then zoom in to check",
+            "zh": "低倍系统扫查：扫完整张组织，标记深染密集、肺泡结构消失的可疑区——再放大确认"
+          },
+          "hint": {
+            "en": "Tumour usually reads at low power as a cellular, blue-purple area that effaces the open-airspace pattern. Find it at 2–4× first; confirm morphology at 10×+.",
+            "zh": "肿瘤在低倍下通常是一片细胞密集、蓝紫深染、肺泡结构消失的区域。先在 2–4× 找到它，再到 10×+ 确认形态。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Lung adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/lungtumoradenocarcinoma.html"
+            },
+            {
+              "title": "PathologyOutlines · Lung squamous cell carcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/lungtumorscc.html"
+            },
+            {
+              "title": "PathologyOutlines · Lung histology",
+              "url": "https://www.pathologyoutlines.com/topic/lungnontumorhistology.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "stain",
@@ -25,7 +118,25 @@
       "targetMag": 2,
       "title": { "en": "2 · Stain and quality", "zh": "2 · 染色与制片质量" },
       "levels": ["novice", "proficient"],
-      "items": []
+      "items": [
+        {
+          "id": "s2-check",
+          "label": {
+            "en": "Confirm H&E staining and assess section quality",
+            "zh": "确认 H&E 染色并评估制片质量"
+          },
+          "hint": {
+            "en": "These are frozen sections — expect ice-crystal artefact, folds and poorer morphology; do not overcall artefact as tumour.",
+            "zh": "这些切片是冰冻切片——会有冰晶伪影、折叠和较差的形态；别把伪影当成肿瘤。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Frozen section overview",
+              "url": "https://www.pathologyoutlines.com/topic/cytopathologyfrozen.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "pre",
@@ -33,7 +144,29 @@
       "targetMag": null,
       "title": { "en": "3 · Pre-assessment", "zh": "3 · 预判" },
       "levels": ["novice", "proficient"],
-      "items": []
+      "items": [
+        {
+          "id": "pre-clinical",
+          "label": {
+            "en": "Weigh age, sex and smoking history into a preliminary call",
+            "zh": "结合年龄、性别、吸烟史做初步判断"
+          },
+          "hint": {
+            "en": "Squamous cell carcinoma is strongly smoking-associated (80–90%); adenocarcinoma is also the most common lung cancer in never-smokers.",
+            "zh": "鳞癌与吸烟强相关（80–90%）；腺癌也是从不吸烟者中最常见的肺癌。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Lung squamous cell carcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/lungtumorscc.html"
+            },
+            {
+              "title": "PathologyOutlines · Lung adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/lungtumoradenocarcinoma.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "features",
@@ -41,7 +174,105 @@
       "targetMag": 10,
       "title": { "en": "4 · Features (low → high power)", "zh": "4 · 特征（低倍 → 高倍）" },
       "levels": ["novice", "proficient"],
-      "items": []
+      "items": [
+        {
+          "id": "f-arch",
+          "label": {
+            "en": "Architecture: open alveolar spaces preserved vs effaced by solid cellular areas",
+            "zh": "结构：开放肺泡结构保留 vs 被实性细胞区取代"
+          },
+          "hint": {
+            "en": "Normal lung keeps open airspaces; adenocarcinoma forms glands/papillae, squamous forms nests and sheets — both efface the architecture.",
+            "zh": "正常肺保持肺泡腔开放；腺癌形成腺样/乳头状结构，鳞癌形成巢状/片状——两者都破坏正常结构。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Lung adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/lungtumoradenocarcinoma.html"
+            },
+            {
+              "title": "PathologyOutlines · Lung squamous cell carcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/lungtumorscc.html"
+            }
+          ]
+        },
+        {
+          "id": "f-gland",
+          "label": {
+            "en": "Glandular differentiation: gland/tubule formation, mucin, growth along alveolar walls (lepidic)",
+            "zh": "腺体分化：腺样/管状结构、黏液、沿肺泡壁生长（lepidic）"
+          },
+          "hint": {
+            "en": "Gland formation, mucin production or lepidic growth along pre-existing alveolar walls points to adenocarcinoma.",
+            "zh": "腺样结构形成、产黏液，或沿原有肺泡壁的 lepidic 生长，指向腺癌。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Lung adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/lungtumoradenocarcinoma.html"
+            },
+            {
+              "title": "PathologyOutlines · Lepidic adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/lungtumoradenolepidic.html"
+            }
+          ]
+        },
+        {
+          "id": "f-keratin",
+          "label": {
+            "en": "Squamous differentiation: keratinization (keratin pearls), intercellular bridges",
+            "zh": "鳞状分化：角化（角化珠）、细胞间桥"
+          },
+          "hint": {
+            "en": "Keratinization — dense orange-pink keratin pearls — and intercellular bridges point to squamous cell carcinoma.",
+            "zh": "角化——致密的橙粉色角化珠——和细胞间桥，指向鳞癌。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Lung squamous cell carcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/lungtumorscc.html"
+            }
+          ]
+        },
+        {
+          "id": "f-cyt",
+          "label": {
+            "en": "Cytology: crowded pleomorphic nuclei, mitoses, necrosis",
+            "zh": "细胞：密集异型核、核分裂、坏死"
+          },
+          "hint": {
+            "en": "Crowded, pleomorphic nuclei with mitotic figures and necrosis support malignancy over normal or reactive tissue.",
+            "zh": "密集的多形性核、核分裂象和坏死支持恶性，而非正常或反应性改变。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Lung adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/lungtumoradenocarcinoma.html"
+            },
+            {
+              "title": "PathologyOutlines · Lung squamous cell carcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/lungtumorscc.html"
+            }
+          ]
+        },
+        {
+          "id": "f-normal",
+          "label": {
+            "en": "Before calling normal: the WHOLE section shows uniform open alveoli, thin septa, no dense cellular foci",
+            "zh": "判正常前：确认整张切片肺泡腔均一开放、隔薄、没有细胞密集灶"
+          },
+          "hint": {
+            "en": "Only call normal after scanning the entire tissue — a normal section shows open airspaces and thin septa throughout, without focal dense areas.",
+            "zh": "扫完整张组织后才能判正常——正常切片应全片肺泡腔开放、肺泡隔薄，没有局灶性深染密集区。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Lung histology",
+              "url": "https://www.pathologyoutlines.com/topic/lungnontumorhistology.html"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "conclusion",
@@ -49,7 +280,16 @@
       "targetMag": null,
       "title": { "en": "5 · Conclusion", "zh": "5 · 结论" },
       "levels": ["novice", "proficient", "expert"],
-      "items": []
+      "items": [
+        {
+          "id": "c-evidence",
+          "label": {
+            "en": "Sanity check: does your conclusion have annotated evidence to stand on?",
+            "zh": "回查：你的结论有标注证据支撑吗？"
+          },
+          "sources": []
+        }
+      ]
     }
   ]
 }

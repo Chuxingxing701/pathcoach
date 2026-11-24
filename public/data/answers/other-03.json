@@ -8,5 +8,11 @@
     "fileName": "TCGA-IQ-7630-01Z-00-DX1.a0b303aa-5ffa-4d47-9fa4-df225210168e.svs",
     "submitterId": "TCGA-IQ-7630",
     "sampleType": "Primary Tumor"
-  }
+  },
+  "references": [
+    {
+      "title": "Pathology Outlines: Laryngeal squamous cell carcinoma",
+      "url": "https://www.pathologyoutlines.com/topic/larynxscc.html"
+    }
+  ]
 }

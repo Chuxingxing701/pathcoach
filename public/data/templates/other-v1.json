@@ -1,0 +1,271 @@
+{
+  "id": "other-v1",
+  "organ": "other",
+  "version": 1,
+  "steps": [
+    {
+      "id": "site",
+      "kind": "site",
+      "targetMag": null,
+      "title": { "en": "0 · Site first", "zh": "0 · 先看部位" },
+      "levels": ["novice", "proficient", "expert"],
+      "items": [
+        {
+          "id": "s0-structure",
+          "label": {
+            "en": "From memory: what is this site made of normally? (lining epithelium + wall/parenchyma)",
+            "zh": "凭记忆：该部位正常由什么构成？（被覆上皮 + 管壁/实质）"
+          },
+          "hint": {
+            "en": "Recall the lining epithelium — squamous (esophagus, cervix, head & neck mucosa) vs ductal/glandular (pancreas) — and the wall layers beneath it.",
+            "zh": "回忆被覆上皮类型——鳞状上皮（食管、宫颈、头颈黏膜）vs 导管/腺上皮（胰腺）——以及其下的管壁结构。"
+          },
+          "options": [
+            { "en": "squamous epithelium", "zh": "鳞状上皮" },
+            { "en": "ductal / glandular epithelium", "zh": "导管/腺上皮" },
+            { "en": "wall layers / parenchyma", "zh": "管壁层次/实质" },
+            { "en": "stroma", "zh": "间质" }
+          ],
+          "sources": [
+            {
+              "title": "PathologyOutlines · Laryngeal squamous cell carcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/larynxscc.html"
+            },
+            {
+              "title": "PathologyOutlines · Pancreatic ductal adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/pancreasductal.html"
+            }
+          ]
+        },
+        {
+          "id": "s0-cancers",
+          "label": {
+            "en": "From memory: which cancer type fits this site?",
+            "zh": "凭记忆：该部位对应哪种癌？"
+          },
+          "hint": {
+            "en": "Squamous-lined sites mostly give squamous cell carcinoma (esophagus, cervix, larynx); ductal/glandular sites give adenocarcinoma (pancreas).",
+            "zh": "鳞状上皮部位多为鳞癌（食管、宫颈、喉）；导管/腺上皮部位为腺癌（胰腺）。"
+          },
+          "options": [
+            { "en": "adenocarcinoma", "zh": "腺癌" },
+            { "en": "squamous cell carcinoma", "zh": "鳞癌" }
+          ],
+          "sources": [
+            {
+              "title": "PathologyOutlines · Adenocarcinoma of esophagus & GE junction",
+              "url": "https://www.pathologyoutlines.com/topic/esophagusadenocarcinoma.html"
+            },
+            {
+              "title": "PathologyOutlines · Pancreatic ductal adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/pancreasductal.html"
+            },
+            {
+              "title": "PathologyOutlines · Laryngeal squamous cell carcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/larynxscc.html"
+            },
+            {
+              "title": "PathologyOutlines · HPV-associated cervical SCC",
+              "url": "https://www.pathologyoutlines.com/topic/cervixSCC.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tissue",
+      "kind": "tissue",
+      "targetMag": 2,
+      "title": { "en": "1 · Tissue type", "zh": "1 · 组织类型" },
+      "levels": ["novice", "proficient"],
+      "items": [
+        {
+          "id": "t1-identify",
+          "label": {
+            "en": "Confirm the tissue matches the stated site",
+            "zh": "确认切片组织与标注部位相符"
+          },
+          "sources": []
+        },
+        {
+          "id": "t1-scan",
+          "label": {
+            "en": "Systematic low-power scan: flag dense, basophilic areas where normal architecture is lost — then zoom in to check",
+            "zh": "低倍系统扫查：标记深染密集、正常结构消失的可疑区——再放大确认"
+          },
+          "hint": {
+            "en": "Invasive carcinoma shows at low power as a cellular area effacing the lining/wall pattern — nests, sheets or infiltrative glands, often with desmoplastic stroma.",
+            "zh": "浸润性癌在低倍下呈细胞密集区，破坏上皮/管壁结构——巢状、片状或浸润性腺体，常伴促纤维间质反应。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Pancreatic ductal adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/pancreasductal.html"
+            },
+            {
+              "title": "PathologyOutlines · Laryngeal squamous cell carcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/larynxscc.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stain",
+      "kind": "stain",
+      "targetMag": 2,
+      "title": { "en": "2 · Stain and quality", "zh": "2 · 染色与制片质量" },
+      "levels": ["novice", "proficient"],
+      "items": [
+        {
+          "id": "s2-check",
+          "label": {
+            "en": "Confirm H&E staining and assess section quality (diagnostic FFPE)",
+            "zh": "确认 H&E 染色并评估制片质量（FFPE 诊断切片）"
+          },
+          "sources": []
+        }
+      ]
+    },
+    {
+      "id": "pre",
+      "kind": "pre-assessment",
+      "targetMag": null,
+      "title": { "en": "3 · Pre-assessment", "zh": "3 · 预判" },
+      "levels": ["novice", "proficient"],
+      "items": [
+        {
+          "id": "pre-clinical",
+          "label": {
+            "en": "Weigh age, sex, smoking history and the site into a preliminary call",
+            "zh": "结合年龄、性别、吸烟史与部位做初步判断"
+          },
+          "hint": {
+            "en": "Smoking strongly associates with squamous cell carcinoma (e.g. larynx, esophagus) and is also a risk factor for pancreatic ductal adenocarcinoma.",
+            "zh": "吸烟与鳞癌强相关（如喉、食管），也是胰腺导管腺癌的危险因素之一。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Laryngeal squamous cell carcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/larynxscc.html"
+            },
+            {
+              "title": "PathologyOutlines · Pancreatic ductal adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/pancreasductal.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "kind": "features",
+      "targetMag": 10,
+      "title": { "en": "4 · Features (low → high power)", "zh": "4 · 特征（低倍 → 高倍）" },
+      "levels": ["novice", "proficient"],
+      "items": [
+        {
+          "id": "f-gland",
+          "label": {
+            "en": "Glandular differentiation: gland/duct-like structures, luminal or intracellular mucin → adenocarcinoma",
+            "zh": "腺体分化：腺样/导管样结构、腔内或胞内黏液 → 腺癌"
+          },
+          "hint": {
+            "en": "Adenocarcinoma shows glandular (ductal) differentiation, usually with luminal or intracellular mucin.",
+            "zh": "腺癌呈腺样（导管样）分化，通常有腔内或胞内黏液。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Adenocarcinoma of esophagus & GE junction",
+              "url": "https://www.pathologyoutlines.com/topic/esophagusadenocarcinoma.html"
+            },
+            {
+              "title": "PathologyOutlines · Pancreatic ductal adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/pancreasductal.html"
+            }
+          ]
+        },
+        {
+          "id": "f-keratin",
+          "label": {
+            "en": "Squamous differentiation: keratinization, keratin pearls, intercellular bridges → squamous cell carcinoma",
+            "zh": "鳞状分化：角化、角化珠、细胞间桥 → 鳞癌"
+          },
+          "hint": {
+            "en": "Squamous cell carcinoma shows squamous differentiation — keratinization with keratin pearls and intercellular bridges.",
+            "zh": "鳞癌呈鳞状分化——角化形成角化珠，并可见细胞间桥。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Laryngeal squamous cell carcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/larynxscc.html"
+            },
+            {
+              "title": "PathologyOutlines · HPV-associated cervical SCC",
+              "url": "https://www.pathologyoutlines.com/topic/cervixSCC.html"
+            }
+          ]
+        },
+        {
+          "id": "f-invasion",
+          "label": {
+            "en": "Invasion: irregular nests/glands in desmoplastic stroma, beyond the normal lining",
+            "zh": "浸润：促纤维间质中的不规则巢/腺体，超出正常上皮范围"
+          },
+          "hint": {
+            "en": "Invasive carcinoma grows as irregular epithelial elements in desmoplastic stroma — e.g. PDAC shows intense stromal desmoplasia.",
+            "zh": "浸润性癌在促纤维间质中呈不规则上皮成分生长——例如 PDAC 有显著的间质促纤维反应。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Pancreatic ductal adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/pancreasductal.html"
+            },
+            {
+              "title": "PathologyOutlines · Laryngeal squamous cell carcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/larynxscc.html"
+            }
+          ]
+        },
+        {
+          "id": "f-cyt",
+          "label": {
+            "en": "Cytology: crowded pleomorphic nuclei, mitoses, necrosis",
+            "zh": "细胞：密集异型核、核分裂、坏死"
+          },
+          "hint": {
+            "en": "Crowded, pleomorphic nuclei with mitotic figures and necrosis support malignancy over normal or reactive epithelium.",
+            "zh": "密集的多形性核、核分裂象和坏死支持恶性，而非正常或反应性上皮。"
+          },
+          "sources": [
+            {
+              "title": "PathologyOutlines · Adenocarcinoma of esophagus & GE junction",
+              "url": "https://www.pathologyoutlines.com/topic/esophagusadenocarcinoma.html"
+            },
+            {
+              "title": "PathologyOutlines · Pancreatic ductal adenocarcinoma",
+              "url": "https://www.pathologyoutlines.com/topic/pancreasductal.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "kind": "conclusion",
+      "targetMag": null,
+      "title": { "en": "5 · Conclusion", "zh": "5 · 结论" },
+      "levels": ["novice", "proficient", "expert"],
+      "items": [
+        {
+          "id": "c-evidence",
+          "label": {
+            "en": "Sanity check: does your conclusion have annotated evidence to stand on?",
+            "zh": "回查：你的结论有标注证据支撑吗？"
+          },
+          "sources": []
+        }
+      ]
+    }
+  ]
+}

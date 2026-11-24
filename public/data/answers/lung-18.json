@@ -8,5 +8,11 @@
     "fileName": "TCGA-49-AARQ-11A-02-TS2.7047AE2E-2B53-4E40-8CBA-7B9C28AFDB4C.svs",
     "submitterId": "TCGA-49-AARQ",
     "sampleType": "Solid Tissue Normal"
-  }
+  },
+  "references": [
+    {
+      "title": "Pathology Outlines: Normal lung histology",
+      "url": "https://www.pathologyoutlines.com/topic/lungnontumorhistology.html"
+    }
+  ]
 }

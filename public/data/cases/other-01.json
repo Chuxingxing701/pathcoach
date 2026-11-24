@@ -7,20 +7,20 @@
     "zh": "食管"
   },
   "clinical": {
-    "age": 59,
+    "age": 56,
     "sex": "male",
-    "smoking": "40 pack-years",
-    "packYears": 40
+    "smoking": "3 pack-years",
+    "packYears": 3
   },
   "stain": "HE",
   "specimen": "FFPE",
-  "templateId": "lung-v1",
+  "templateId": "other-v1",
   "tiles": {
-    "dzi": "https://pathcoach-tiles-1.chuxingxing.workers.dev/v1/other-01.dzi",
+    "dzi": "https://pathcoach-tiles-2.chuxingxing.workers.dev/v1/other-01.dzi",
     "mpp": 0.5,
-    "width": 20730,
-    "height": 21383,
-    "scanMag": 40.0
+    "width": 55371,
+    "height": 21679,
+    "scanMag": 40
   },
   "regions": null
 }

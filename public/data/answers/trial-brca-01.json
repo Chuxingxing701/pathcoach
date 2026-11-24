@@ -8,5 +8,11 @@
     "fileName": "TCGA-AC-A8OR-01Z-00-DX1.C9A35592-1E73-40D4-834A-46E3471D84A3.svs",
     "submitterId": "TCGA-AC-A8OR",
     "sampleType": "Primary Tumor"
-  }
+  },
+  "references": [
+    {
+      "title": "Pathology Outlines: Breast invasive ductal carcinoma, NOS",
+      "url": "https://www.pathologyoutlines.com/topic/breastmalignantductalnos.html"
+    }
+  ]
 }

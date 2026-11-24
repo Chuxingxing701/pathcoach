@@ -8,5 +8,11 @@
     "fileName": "TCGA-33-4538-11A-01-BS1.88583915-1af7-4240-9e44-3cf9e99da8eb.svs",
     "submitterId": "TCGA-33-4538",
     "sampleType": "Solid Tissue Normal"
-  }
+  },
+  "references": [
+    {
+      "title": "Pathology Outlines: Normal lung histology",
+      "url": "https://www.pathologyoutlines.com/topic/lungnontumorhistology.html"
+    }
+  ]
 }

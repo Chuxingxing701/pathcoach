@@ -1,4 +1,4 @@
-import type { CaseAnswer, CaseMeta, Manifest, Split } from './types';
+import type { CaseAnswer, CaseMeta, Manifest, Split, Template } from './types';
 
 const BASE = '/data';
 
@@ -26,6 +26,16 @@ export async function loadCasesBySplit(split: Split): Promise<CaseMeta[]> {
   const m = await loadManifest();
   const metas = await Promise.all(m.cases.map(loadCase));
   return metas.filter((c) => c.split === split);
+}
+
+const templateCache = new Map<string, Promise<Template>>();
+export function loadTemplate(id: string): Promise<Template> {
+  let p = templateCache.get(id);
+  if (!p) {
+    p = getJson<Template>(`templates/${id}.json`);
+    templateCache.set(id, p);
+  }
+  return p;
 }
 
 /** Fetched only after the user has submitted — the payload reveals the label. */
