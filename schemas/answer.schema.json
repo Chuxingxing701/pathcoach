@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "answer.schema.json",
+  "title": "CaseAnswer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "truth", "primaryDiagnosis", "source"],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "truth": {
+      "enum": ["normal", "adeno", "squamous"]
+    },
+    "primaryDiagnosis": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["project", "gdcFileId", "fileName", "submitterId", "sampleType"],
+      "properties": {
+        "project": {
+          "type": "string"
+        },
+        "gdcFileId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "submitterId": {
+          "type": "string"
+        },
+        "sampleType": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

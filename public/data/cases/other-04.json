@@ -1,0 +1,26 @@
+{
+  "id": "other-04",
+  "split": "practice",
+  "site": "cervix",
+  "siteLabel": {
+    "en": "Cervix",
+    "zh": "宫颈"
+  },
+  "clinical": {
+    "age": 49,
+    "sex": "female",
+    "smoking": "reformed smoker (<=15 y)",
+    "packYears": null
+  },
+  "stain": "HE",
+  "specimen": "FFPE",
+  "templateId": "lung-v1",
+  "tiles": {
+    "dzi": "https://pathcoach-tiles-2.chuxingxing.workers.dev/v1/other-04.dzi",
+    "mpp": 0.5,
+    "width": 64346,
+    "height": 28872,
+    "scanMag": 40.0
+  },
+  "regions": null
+}

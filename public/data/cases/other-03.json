@@ -1,0 +1,26 @@
+{
+  "id": "other-03",
+  "split": "practice",
+  "site": "head-neck",
+  "siteLabel": {
+    "en": "Head & neck",
+    "zh": "头颈部"
+  },
+  "clinical": {
+    "age": 50,
+    "sex": "male",
+    "smoking": "lifelong non-smoker",
+    "packYears": null
+  },
+  "stain": "HE",
+  "specimen": "FFPE",
+  "templateId": "lung-v1",
+  "tiles": {
+    "dzi": "https://pathcoach-tiles-2.chuxingxing.workers.dev/v1/other-03.dzi",
+    "mpp": 0.5,
+    "width": 71069,
+    "height": 29928,
+    "scanMag": 40.0
+  },
+  "regions": null
+}

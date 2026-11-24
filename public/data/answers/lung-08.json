@@ -1,0 +1,12 @@
+{
+  "id": "lung-08",
+  "truth": "adeno",
+  "primaryDiagnosis": "Adenocarcinoma with mixed subtypes",
+  "source": {
+    "project": "TCGA-LUAD",
+    "gdcFileId": "ae365346-f0d4-4c44-af68-e02424c1d119",
+    "fileName": "TCGA-05-4417-01A-01-BS1.77504096-c1dd-4bbf-ab1a-c12fde152fc1.svs",
+    "submitterId": "TCGA-05-4417",
+    "sampleType": "Primary Tumor"
+  }
+}
